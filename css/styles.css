@@ -1,0 +1,144 @@
+/* =====================================
+   GENERAL
+===================================== */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* =====================================
+   NAV LINKS
+===================================== */
+
+nav a {
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #15803d;
+}
+
+/* =====================================
+   OPPORTUNITY CARDS
+===================================== */
+
+.hover-card {
+    transition: all 0.3s ease;
+}
+
+.hover-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+/* =====================================
+   DRAG & DROP INTERESTS
+===================================== */
+
+.interest-card {
+
+    background: #dcfce7;
+
+    color: #15803d;
+
+    padding: 14px 20px;
+
+    border-radius: 14px;
+
+    cursor: grab;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.interest-card:hover {
+
+    transform: scale(1.05);
+
+}
+
+.interest-card:active {
+
+    cursor: grabbing;
+
+}
+
+#dropZone {
+
+    background: #f9fafb;
+
+    transition: 0.3s;
+
+}
+
+#dropZone.drag-over {
+
+    background: #dcfce7;
+
+    border-color: #15803d;
+
+}
+
+/* =====================================
+   IMPACT CARDS
+===================================== */
+
+.impact-card {
+
+    background: #f0fdf4;
+
+    padding: 2rem;
+
+    border-radius: 1rem;
+
+    text-align: center;
+
+    transition: 0.3s;
+}
+
+.impact-card:hover {
+
+    transform: translateY(-5px);
+
+}
+
+/* =====================================
+   FORM
+===================================== */
+
+input,
+select {
+
+    outline: none;
+
+}
+
+input:focus,
+select:focus {
+
+    border-color: #15803d;
+
+    box-shadow: 0 0 0 3px rgba(21,128,61,0.2);
+
+}
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media(max-width:768px){
+
+    .interest-card{
+
+        width:100%;
+
+        text-align:center;
+
+    }
+
+}

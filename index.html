@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+        NGO Volunteer Connect
+    </title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link
+        rel="stylesheet"
+        href="./css/styles.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#15803d',
+                        secondary: '#0f766e',
+                        accent: '#f59e0b'
+                    }
+                }
+            }
+        }
+    </script>
+
+</head>
+
+<body class="bg-gray-50">
+
+<!-- =========================
+     NAVBAR
+========================== -->
+
+<header>
+
+<nav
+class="bg-white shadow-md sticky top-0 z-50">
+
+<div class="max-w-7xl mx-auto px-6">
+
+<div
+class="flex justify-between items-center h-20">
+
+<!-- Logo -->
+
+<div
+class="flex items-center gap-3">
+
+<div
+class="bg-primary text-white p-3 rounded-xl">
+
+<i class="fa-solid fa-handshake-angle"></i>
+
+</div>
+
+<div>
+
+<h1
+class="font-bold text-xl text-primary">
+
+NGO Volunteer Connect
+
+</h1>
+
+</div>
+
+</div>
+
+<!-- Desktop Menu -->
+
+<div
+class="hidden lg:flex gap-8">
+
+<a href="#home">
+Home
+</a>
+
+<a href="#about">
+About
+</a>
+
+<a href="#opportunities">
+Opportunities
+</a>
+
+<a href="#categories">
+Categories
+</a>
+
+<a href="#register">
+Volunteer
+</a>
+
+<a href="#contact">
+Contact
+</a>
+
+</div>
+
+<!-- Mobile Menu -->
+
+<button
+id="menuBtn"
+class="lg:hidden">
+
+<i class="fa-solid fa-bars text-2xl"></i>
+
+</button>
+
+</div>
+
+</div>
+
+</nav>
+
+</header>
+
+<!-- =========================
+     HERO
+========================== -->
+
+<main>
+
+<section
+id="home"
+class="relative overflow-hidden">
+
+<div
+class="absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-95">
+</div>
+
+<div
+class="relative max-w-7xl mx-auto px-6 py-24">
+
+<div
+class="grid lg:grid-cols-2 gap-12 items-center">
+
+<!-- Left -->
+
+<div class="text-white">
+
+<div
+class="inline-flex items-center gap-2 bg-white/20 px-4 py-2 rounded-full mb-6">
+
+<i class="fa-solid fa-location-dot"></i>
+
+<span>
+Connecting NGOs and Volunteers Across India
+</span>
+
+</div>
+
+<h1
+class="text-5xl lg:text-6xl font-bold leading-tight">
+
+Connect.
+Volunteer.
+Create Impact.
+
+</h1>
+
+<p
+class="mt-6 text-lg text-gray-100">
+
+Discover meaningful volunteer opportunities,
+support trusted NGOs,
+and make a difference in your community.
+
+</p>
+
+<!-- Session Storage API -->
+
+<div class="mt-8">
+
+<p class="mb-3 font-semibold">
+
+I am a:
+
+</p>
+
+<div class="flex gap-4">
+
+<button
+id="volunteerBtn"
+class="bg-white text-primary px-6 py-3 rounded-xl font-semibold">
+
+Volunteer
+
+</button>
+
+<button
+id="ngoBtn"
+class="border border-white px-6 py-3 rounded-xl">
+
+NGO
+
+</button>
+
+</div>
+<p
+id="sessionText"
+class="mt-4 text-sm text-white">
+</p>
+
+</div>
+
+<div class="mt-8">
+
+<p
+id="roleDescription"
+class="text-lg mb-5">
+
+Discover volunteer opportunities near you.
+
+</p>
+
+<div id="roleActions">
+
+<a
+href="#opportunities"
+class="bg-accent text-white px-6 py-3 rounded-xl inline-block">
+
+Explore Opportunities
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Right Search Card -->
+
+<div>
+
+<div
+class="bg-white rounded-3xl p-8 shadow-2xl">
+
+<h2
+class="text-2xl font-bold mb-6">
+
+Find Opportunities Near You
+
+</h2>
+
+<label
+class="block mb-2 font-medium">
+
+Select City
+
+</label>
+
+<select
+id="citySelect"
+class="w-full border rounded-xl p-3 mb-4">
+
+<option>Bangalore</option>
+<option>Mumbai</option>
+<option>Delhi</option>
+<option>Pune</option>
+<option>Hyderabad</option>
+
+</select>
+<p
+id="savedCityText"
+class="text-green-600 text-sm mb-4">
+</p>
+
+<input
+type="text"
+placeholder="Education, Healthcare..."
+class="w-full border rounded-xl p-3 mb-4">
+
+<!-- Geolocation API -->
+
+<button
+id="locationBtn"
+class="w-full bg-secondary text-white py-3 rounded-xl">
+
+Use My Location
+
+</button>
+
+<p
+id="locationResult"
+class="mt-4 text-sm text-gray-600">
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<!-- =========================
+     ABOUT SECTION
+========================== -->
+
+<section
+id="about"
+class="py-20 bg-white">
+
+<div
+class="max-w-4xl mx-auto px-6">
+
+<article
+class="prose lg:prose-xl max-w-none">
+
+<h2>
+About NGO Volunteer Connect
+</h2>
+
+<p>
+NGO Volunteer Connect bridges the gap
+between passionate volunteers and
+trusted NGOs across India.
+</p>
+
+<p>
+Our mission is to make volunteering
+accessible, impactful, and rewarding by
+connecting individuals with meaningful
+opportunities in education, healthcare,
+environmental conservation, animal welfare,
+and community development.
+</p>
+
+<p>
+Through our platform, volunteers can
+discover opportunities, connect with NGOs,
+and contribute towards positive social change.
+</p>
+
+</article>
+
+</div>
+
+</section>
+
+<!-- =========================
+     OPPORTUNITIES SECTION
+========================== -->
+
+<section
+id="opportunities"
+class="py-20 bg-gray-50">
+
+<div
+class="max-w-7xl mx-auto px-6">
+
+<div class="text-center mb-12">
+
+<h2
+class="text-4xl font-bold">
+
+Volunteer Opportunities
+
+</h2>
+
+<p
+class="mt-4 text-gray-600">
+
+Discover opportunities based on your city.
+
+</p>
+
+</div>
+
+<div
+class="flex justify-between items-center mb-6">
+
+<h3
+id="opportunityHeading"
+class="text-2xl font-bold">
+
+Volunteer Opportunities in Bangalore
+
+</h3>
+
+<p
+id="opportunityCount"
+class="text-gray-500">
+
+3 opportunities found
+
+</p>
+
+</div>
+
+<div
+id="opportunityContainer"
+class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================
+     DRAG & DROP API
+========================== -->
+
+<section
+id="categories"
+class="py-20 bg-white">
+
+<div
+class="max-w-7xl mx-auto px-6">
+
+<div class="text-center mb-12">
+
+<h2
+class="text-4xl font-bold">
+
+Choose Your Interests
+
+</h2>
+
+<p
+class="mt-4 text-gray-600">
+
+Drag interests into your profile area.
+
+</p>
+
+</div>
+
+<div
+class="grid md:grid-cols-2 gap-10">
+
+<!-- Interests -->
+
+<div>
+
+<h3
+class="text-xl font-semibold mb-4">
+
+Available Interests
+
+</h3>
+
+<div
+class="flex flex-wrap gap-4">
+
+<div
+id="education"
+draggable="true"
+class="interest-card">
+
+📚 Education
+
+</div>
+
+<div
+id="environment"
+draggable="true"
+class="interest-card">
+
+🌱 Environment
+
+</div>
+
+<div
+id="healthcare"
+draggable="true"
+class="interest-card">
+
+🏥 Healthcare
+
+</div>
+
+<div
+id="animals"
+draggable="true"
+class="interest-card">
+
+🐾 Animal Welfare
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Drop Zone -->
+
+<div>
+
+<h3
+class="text-xl font-semibold mb-4">
+
+My Interests
+
+</h3>
+
+<div
+id="dropZone"
+class="border-4 border-dashed border-primary rounded-2xl p-8 min-h-[250px]">
+
+<p
+class="text-gray-500">
+
+Drop interests here
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================
+     VOLUNTEER REGISTRATION
+========================== -->
+
+<section
+id="register"
+class="py-20 bg-gray-50">
+
+<div
+class="max-w-4xl mx-auto px-6">
+
+<div
+class="bg-white rounded-3xl shadow-lg p-8">
+
+<h2
+class="text-4xl font-bold text-center mb-8">
+
+Volunteer Registration
+
+</h2>
+
+<form
+id="volunteerForm">
+
+<div
+class="grid md:grid-cols-2 gap-6">
+
+<input
+type="text"
+placeholder="Full Name"
+required
+class="border rounded-xl p-3">
+
+<input
+type="email"
+placeholder="Email Address"
+required
+class="border rounded-xl p-3">
+
+</div>
+
+<input
+type="tel"
+placeholder="Phone Number"
+class="border rounded-xl p-3 mt-6 w-full">
+
+<!-- FILE API -->
+
+<div class="mt-6">
+
+<label
+class="block mb-2 font-medium">
+
+Upload Resume
+
+</label>
+
+<input
+type="file"
+id="resumeUpload"
+class="w-full border p-3 rounded-xl">
+
+<p
+id="fileName"
+class="mt-3 text-primary font-medium">
+
+</p>
+
+</div>
+
+<button
+type="submit"
+class="mt-8 bg-primary text-white px-8 py-3 rounded-xl">
+
+Register as Volunteer
+
+</button>
+<div
+id="successMessage"
+class="hidden mt-4 bg-green-100 text-green-700 p-4 rounded-xl">
+
+Thank you for registering as a volunteer!
+
+</div>
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================
+     IMPACT SECTION
+========================== -->
+
+<section
+class="py-20 bg-white">
+
+<div
+class="max-w-7xl mx-auto px-6">
+
+<div class="text-center mb-12">
+
+<h2
+class="text-4xl font-bold">
+
+Our Impact Across India
+
+</h2>
+
+<p
+class="mt-4 text-gray-600">
+
+Thousands of volunteers are creating change.
+
+</p>
+
+</div>
+
+<div
+class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+<div class="impact-card">
+
+<h3 class="text-4xl font-bold text-primary">
+
+150+
+
+</h3>
+
+<p>
+Partner NGOs
+</p>
+
+</div>
+
+<div class="impact-card">
+
+<h3 class="text-4xl font-bold text-primary">
+
+12000+
+
+</h3>
+
+<p>
+Volunteers
+</p>
+
+</div>
+
+<div class="impact-card">
+
+<h3 class="text-4xl font-bold text-primary">
+
+2500+
+
+</h3>
+
+<p>
+Campaigns
+</p>
+
+</div>
+
+<div class="impact-card">
+
+<h3 class="text-4xl font-bold text-primary">
+
+100000+
+
+</h3>
+
+<p>
+Volunteer Hours
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================
+     CONTACT SECTION
+========================== -->
+
+<section
+id="contact"
+class="py-20 bg-gray-50">
+
+<div
+class="max-w-4xl mx-auto px-6 text-center">
+
+<h2
+class="text-4xl font-bold">
+
+Get In Touch
+
+</h2>
+
+<p
+class="mt-4 text-gray-600">
+
+Have questions or want to partner with us?
+
+</p>
+
+<div
+class="mt-8 space-y-3">
+
+<p>
+
+📧 support@ngovolunteerconnect.org
+
+</p>
+
+<p>
+
+📍 Bangalore, India
+
+</p>
+
+<p>
+
+📞 +91 98765 43210
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+<!--<section class="py-10 bg-white">
+
+<h2 class="text-2xl font-bold text-center mb-6">
+HTML5 APIs Used
+</h2>
+
+<ul class="text-center">
+
+<li>Geolocation API</li>
+<li>Local Storage API</li>
+<li>Session Storage API</li>
+<li>File API</li>
+<li>Drag and Drop API</li>
+
+</ul>
+
+</section>-->
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================== -->
+
+<footer
+class="bg-gray-900 text-white py-10">
+
+<div
+class="max-w-7xl mx-auto px-6 text-center">
+
+<h3
+class="text-2xl font-bold">
+
+NGO Volunteer Connect
+
+</h3>
+
+<p
+class="mt-3 text-gray-400">
+
+Connecting passionate volunteers with
+impactful NGOs across India.
+
+</p>
+
+<p
+class="mt-6 text-gray-500">
+
+© 2026 NGO Volunteer Connect.
+All Rights Reserved.
+
+</p>
+
+</div>
+
+</footer>
+
+<script src="./js/main.js"></script>
+
+</body>
+</html>
