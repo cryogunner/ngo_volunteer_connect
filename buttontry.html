@@ -1,0 +1,39 @@
+<!--DOCTYPE HTML-->
+<html><head>
+    <title>BUTTON CLICK</title>
+    </head>
+    <body>
+            <form>
+                <label>Enter your username:</label><br>
+                <input type="text"  id="username" name="username"><br>
+                <label>Enter password:</label><br>
+                <input type="text"  id="password" name="password"><br><br>
+                <input type="button" value="Submit" id="btn">
+            </form>
+
+            <script>
+                document.getElementById("btn").addEventListener("click",function(){
+                    get_name=document.getElementById("username").value;
+                    get_password=document.getElementById("password").value;
+                    if(get_name=="admin" && get_password=="123"){
+                        alert("Login Successful!");
+                        window.open("images/deadline_dog.jpg");
+                    }
+                    else{
+                        alert("Login Failed!");
+                    }
+                });
+                            document.getElementById("txt")
+
+                document.getElementById("password").addEventListener(
+
+                "keydown",
+
+                function(){
+                    
+                console.log("Key Pressed");
+
+                });
+            </script>
+    </body>
+</html>

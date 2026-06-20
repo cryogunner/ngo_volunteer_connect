@@ -20,6 +20,8 @@ document.getElementById("sessionText");
 const citySelect =
 document.getElementById("citySelect");
 
+const searchInput =
+document.getElementById("searchInput");
 /* =====================================
    SESSION STORAGE API
 ===================================== */
@@ -245,6 +247,20 @@ error => {
 );
 });
 
+searchInput.addEventListener(
+    "input",
+    function(){
+
+        currentSearch =
+        this.value.toLowerCase();
+
+        renderOpportunities(
+            citySelect.value
+        );
+
+    }
+);
+
 /* =====================================
    FILE API
 ===================================== */
@@ -275,7 +291,22 @@ e => {
 
 }
 );
+const closeModal =
+document.getElementById(
+"closeModal"
+);
 
+closeModal.addEventListener(
+"click",
+() => {
+
+document.getElementById(
+"opportunityModal"
+).classList.add(
+"hidden"
+);
+
+});
 /* =====================================
    DRAG & DROP API
 ===================================== */
@@ -347,6 +378,7 @@ e => {
     dropZone.appendChild(item);
 
 });
+let currentSearch = "";
 const opportunities = {
 
     Bangalore: [
@@ -495,8 +527,34 @@ function renderOpportunities(city) {
 
     container.innerHTML = "";
 
-    const cityData =
+    let cityData =
         opportunities[city] || [];
+        if(currentSearch){
+
+    cityData =
+    cityData.filter(
+        opportunity =>
+
+        opportunity.title
+        .toLowerCase()
+        .includes(currentSearch)
+
+        ||
+
+        opportunity.description
+        .toLowerCase()
+        .includes(currentSearch)
+
+        ||
+
+        opportunity.tags.some(
+            tag =>
+            tag.toLowerCase()
+            .includes(currentSearch)
+        )
+    );
+
+}
     heading.textContent =
         `Volunteer Opportunities in ${city}`;
 
@@ -559,18 +617,77 @@ function renderOpportunities(city) {
 
                     </button>
 
-                    <button
-                        class="border px-4 py-2 rounded-lg">
+                  <button
+                        class="read-more-btn border px-4 py-2 rounded-lg"
+                        data-title="${opportunity.title}"
+                        data-ngo="${opportunity.ngo}"
+                        data-description="${opportunity.description}"
+                        data-tags="${opportunity.tags.join(',')}">
 
                         Read More
 
-                    </button>
+                  </button>
 
                 </div>
 
             </div>
 
         `;
+    });
+        document.querySelectorAll(
+    ".read-more-btn"
+    )
+    .forEach(button => {
+
+    button.addEventListener(
+    "click",
+    () => {
+
+    document.getElementById(
+    "modalTitle"
+    ).textContent =
+    button.dataset.title;
+
+    document.getElementById(
+    "modalNGO"
+    ).textContent =
+    button.dataset.ngo;
+
+    document.getElementById(
+    "modalDescription"
+    ).textContent =
+    button.dataset.description;
+
+    const modalTags =
+    document.getElementById(
+    "modalTags"
+    );
+
+    modalTags.innerHTML = "";
+
+    button.dataset.tags
+    .split(",")
+    .forEach(tag => {
+
+    modalTags.innerHTML += `
+    <span
+    class="bg-green-100 text-green-700 px-3 py-1 rounded-full">
+
+    ${tag}
+
+    </span>
+    `;
+
+    });
+
+    document.getElementById(
+    "opportunityModal"
+    ).classList.remove(
+    "hidden"
+    );
+
+    });
+
     });
 
 }
@@ -611,5 +728,73 @@ setTimeout(() => {
 
 }
 );
+/* =====================================
+   ANIMATED COUNTERS
+===================================== */
 
+const counters =
+document.querySelectorAll(
+".counter"
+);
+
+counters.forEach(counter => {
+
+    const target =
+    +counter.dataset.target;
+
+    let count = 0;
+
+    const increment =
+    Math.max(1, target / 200);
+    const updateCounter = () => {
+
+        if(count < target){
+
+            count += increment;
+
+            counter.textContent =
+            Math.floor(count);
+
+            requestAnimationFrame(
+                updateCounter
+            );
+
+        }
+        else{
+
+            counter.textContent =
+            target;
+
+        }
+
+    };
+
+    updateCounter();
+
+});
+/* =====================================
+   FAQ ACCORDION
+===================================== */
+
+const faqButtons =
+document.querySelectorAll(
+".faq-btn"
+);
+
+faqButtons.forEach(button => {
+
+    button.addEventListener(
+    "click",
+    () => {
+
+        const content =
+        button.nextElementSibling;
+
+        content.classList.toggle(
+            "hidden"
+        );
+
+    });
+
+});
 });

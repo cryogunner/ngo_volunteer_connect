@@ -285,6 +285,7 @@ class="text-green-600 text-sm mb-4">
 </p>
 
 <input
+id="searchInput"
 type="text"
 placeholder="Education, Healthcare..."
 class="w-full border rounded-xl p-3 mb-4">
@@ -664,9 +665,7 @@ class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
 <div class="impact-card">
 
 <h3 class="text-4xl font-bold text-primary">
-
-150+
-
+<span class="counter" data-target="150">0</span>+
 </h3>
 
 <p>
@@ -678,9 +677,7 @@ Partner NGOs
 <div class="impact-card">
 
 <h3 class="text-4xl font-bold text-primary">
-
-12000+
-
+<span class="counter" data-target="12000">0</span>+
 </h3>
 
 <p>
@@ -692,9 +689,7 @@ Volunteers
 <div class="impact-card">
 
 <h3 class="text-4xl font-bold text-primary">
-
-2500+
-
+<span class="counter" data-target="2500">0</span>+
 </h3>
 
 <p>
@@ -706,9 +701,7 @@ Campaigns
 <div class="impact-card">
 
 <h3 class="text-4xl font-bold text-primary">
-
-100000+
-
+<span class="counter" data-target="100000">0</span>+
 </h3>
 
 <p>
@@ -723,6 +716,80 @@ Volunteer Hours
 
 </section>
 
+<section class="py-20 bg-white">
+
+<div class="max-w-4xl mx-auto px-6">
+
+<h2 class="text-4xl font-bold text-center mb-12">
+
+Frequently Asked Questions
+
+</h2>
+
+<div class="space-y-4">
+
+<div class="faq-item border rounded-xl">
+
+<button
+class="faq-btn w-full text-left p-5 font-semibold flex justify-between">
+
+<span>How do I become a volunteer?</span>
+
+<span>+</span>
+
+</button>
+
+<div class="faq-content hidden p-5 border-t">
+
+Register using the volunteer form and explore opportunities.
+
+</div>
+
+</div>
+
+<div class="faq-item border rounded-xl">
+
+<button
+class="faq-btn w-full text-left p-5 font-semibold flex justify-between">
+
+<span>Do volunteers receive certificates?</span>
+
+<span>+</span>
+
+</button>
+
+<div class="faq-content hidden p-5 border-t">
+
+Yes. Many NGOs provide participation certificates.
+
+</div>
+
+</div>
+
+<div class="faq-item border rounded-xl">
+
+<button
+class="faq-btn w-full text-left p-5 font-semibold flex justify-between">
+
+<span>Can NGOs register on this platform?</span>
+
+<span>+</span>
+
+</button>
+
+<div class="faq-content hidden p-5 border-t">
+
+Yes. NGOs can join and recruit volunteers.
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
 <!-- =========================
      CONTACT SECTION
 ========================== -->
@@ -793,7 +860,44 @@ HTML5 APIs Used
 </section>-->
 </main>
 
+<div
+id="opportunityModal"
+class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
 
+<div
+class="bg-white rounded-2xl p-8 max-w-lg w-full mx-4">
+
+<h2
+id="modalTitle"
+class="text-2xl font-bold mb-4">
+</h2>
+
+<p
+id="modalNGO"
+class="text-primary font-semibold mb-3">
+</p>
+
+<p
+id="modalDescription"
+class="text-gray-600 mb-4">
+</p>
+
+<div
+id="modalTags"
+class="flex flex-wrap gap-2 mb-6">
+</div>
+
+<button
+id="closeModal"
+class="bg-primary text-white px-6 py-2 rounded-xl">
+
+Close
+
+</button>
+
+</div>
+
+</div>
 <!-- =========================
      FOOTER
 ========================== -->
